@@ -1,0 +1,24 @@
+[package]
+name = "diag-core"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+description = "Shared DNS, TCP, TLS, HTTP and CONNECT proxy probes for url-diag and defender-diag"
+license = "MIT"
+repository = "https://github.com/DBANFD/diag-core"
+readme = "README.md"
+publish = false
+
+[dependencies]
+anyhow = "1"
+base64 = "0.22"
+chrono = { version = "0.4", features = ["serde"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+rustls-native-certs = "0.8"
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "time", "io-util"] }
+tokio-rustls = { version = "0.26", default-features = false, features = ["ring", "tls12"] }
+x509-parser = "0.18"
+
+[dev-dependencies]
+rcgen = "0.14"
